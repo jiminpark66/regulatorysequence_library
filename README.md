@@ -1,26 +1,43 @@
-# Regulatory Sequence Library
+# Regulatory sequence library
 
-Code used to quantify transcriptional activities values from a multiplexed reporter assay referenced in manuscript X. Currently, a simple demo is provided and the repository will be updated later for more general applications. 
+Transcriptional levels of regulatory sequences can be measured in high-throughput using Massively Parallel Reporter Assays (MPRA). Materials and code used to process and analyze raw sequencing data from regulatory sequence MPRA experiments are provided here. This pipeline was utilized in the following manuscripts: "Systematic dissection of σ70 sequence diversity and function in bacteria" and "High-throughput transcriptional measurements of regulatory sequences derived from bacterial biosynthetic gene clusters".
 
-Manuscript reference X.
-Raw data can be accessed at X.
+Manuscripts can be accessed here: [add link] [add link] 
+Raw data for the manuscript can be accessed here: E-MTAB-9111 [σ70] [add link], E-MTAB-9223 [BGC] [add link]
 
-# Dependencies and required softwares
-bbMerge
-pandas  
-numpy  
-xlrd  
 
-# Demo
-For the purposes of the demo, download a single sample from the repository accession. A single sample should consist of four raw sequencing files; DNA read1, DNA read2, RNA read1, RNA read2.  
-Next, download demo directory, contains empty output file directories, library reference file, etc.  
-Download these files:  
+# Dependencies
+- Python 3.X
+    - biopython
+    - pandas
+    - numpy 
+    - xlrd 
+- bbMerge
 
-# Prep sequencing files
-- Create a new directory "raw" and populate with raw sequencing files. Also create "unmerged" and "merged" files for output.
-- Pair-end merge sequencing files using SeqPrep using default settings.
-- To easily prep multiple samples at the same time, use the mk_mergefile.py provided. Just update the mk_mergefile script with the appropriate parameters
-- Run the resulting bashscript merge.sh
+# 1. Raw file processing and other prerequisites
+A single sample should consist of four raw sequencing files: DNA read1, DNA read2, RNA read1, and RNA read2. Download the files in the demo directory. To demo this pipeline, download these samples from the E-MTAB-9111 repository `176_DNA_1_S9_R1.fastq.gz, 176_DNA_1_S9_R2.fastq.gz, 176_RNA_1_1_S21_R1.fastq.gz, 176_RNA_1_1_S21_R2.fastq.gz`.
+
+Create the following output directories
+```
+0_bccounts/
+1_lowq/
+2_missingadapter/
+3_frag/
+4_badbc/
+05_bc_counts/
+5_goodbc_badalign/
+6_goodbc_goodalign/
+7_goodbc_perfectalign/
+8_goodbc_goodalign_bccounts/
+9_goodbc_perfectalign_bccounts/
+10_log_files/
+merged/
+raw/
+unmerged/
+```
+
+Library sequences for the demo is provided from `3_lib_final.csv` file. Using that file as a reference template, other custom libraries can be analyzed.
+Move the raw sequencing files (fastq.gz files) to the raw directory. In the `mk_mergefile.py` file, edit the di (directory) variable as appropriate and run the python script to generate a bash script, `merge.sh` that will merge all the files in the `raw/` directory.  
 
 # Parse merged sequencing files
 - Create these following folders [0_bccounts
