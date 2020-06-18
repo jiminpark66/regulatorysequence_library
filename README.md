@@ -2,7 +2,7 @@
 
 Transcriptional levels of regulatory sequences can be measured in high-throughput using Massively Parallel Reporter Assays (MPRA). Materials and code used to process and analyze raw sequencing data from regulatory sequence MPRA experiments are provided here. This pipeline was utilized in the following manuscripts: "Systematic dissection of σ70 sequence diversity and function in bacteria" and "High-throughput transcriptional measurements of regulatory sequences derived from bacterial biosynthetic gene clusters".
 
-Manuscripts can be accessed here: [add link] [add link] 
+Manuscripts can be accessed here: [add link] [add link]  
 Raw data for the manuscript can be accessed here: E-MTAB-9111 [σ70] [add link], E-MTAB-9223 [BGC] [add link]
 
 
