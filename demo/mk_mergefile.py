@@ -1,6 +1,7 @@
 import os
 
-di = "20200320_pJP50regall/"
+# Edit the di variable as needed
+di = "demo/"
 rawdi = di+"raw/"
 mergdi = di+"merged/"
 unmergdi = di+"unmerged/"
